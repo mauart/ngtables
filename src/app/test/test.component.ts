@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
+import * as _ from "lodash";
 
 @Component({
   selector: 'app-test',
@@ -139,6 +140,8 @@ export class TestComponent {
    // 'AND' by default, so changing to 'OR' by setting false here
  }
  onSelect(event){
-   console.log(event.selected);
+  let ar=event.map(_.property('id')) 
+
+  console.log(ar);
  }
 }
