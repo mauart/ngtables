@@ -1,9 +1,39 @@
+<div class="notsowide">
+  <tabset>
+    <tab heading="Upload" class='tab'>
+      <br />
+      <div class="notsowide">
+        <ng2-smart-table
+                          [settings]="settings2"
+                          [source]="source2"
+                          class='table table-striped table-bordered table-condensed'
+                          >
+        </ng2-smart-table>
+      </div>
+    </tab>
+    <tab heading="Search History" class='tab'>
+      <br />
+      <div class="notsowide">
+        <div class="row">
+          <div class="col-sm-3">
+            <button class="btn btn-primary btn-block">
+              Resend
+            </button>
+          </div>
+          <div class="col-sm-5"></div>
+          <div class="col-sm-4">
+            <input #search class="search input-sm form-control" type="text" placeholder="Search..." (keydown.enter)="onSearch(search.value)">
+          </div>
+        </div>
+        <ng2-smart-table
+                          [settings]="settings"
+                          [source]="source"
+                          class='table table-striped table-bordered table-condensed'
+                          (userRowSelect)="onSelect($event.selected)">
 
-<input #search class="search" type="text" placeholder="Search..." (keydown.enter)="onSearch(search.value)">
-<ng2-smart-table
-                  [settings]="settings"
-                  [source]="source"
-                  class='table table-striped table-bordered table-condensed'
-                  (userRowSelect)="onSelect($event.selected)">
+        </ng2-smart-table>
+      </div>
+    </tab>
+  </tabset>
 
-</ng2-smart-table>
+</div>

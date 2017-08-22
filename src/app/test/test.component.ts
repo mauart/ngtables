@@ -10,10 +10,10 @@ import * as _ from "lodash";
 
 })
 export class TestComponent {
-ngAfterViewChecked() { let firstRow = 2; let columnOffset = 4; if (this.elRef.nativeElement.querySelector('.ng2-smart-action-add-create')) { let td = this._renderer.createElement("td"); let tr = this.elRef.nativeElement.getElementsByTagName('tr')[firstRow]; let refChild = tr.childNodes[columnOffset]; if (refChild.className === 'ng2-smart-actions') { this._renderer.insertBefore(tr, td, refChild); } } }
+//ngAfterViewChecked() { let firstRow = 2; let columnOffset = 4; if (this.elRef.nativeElement.querySelector('.ng2-smart-action-add-create')) { let td = this._renderer.createElement("td"); let tr = this.elRef.nativeElement.getElementsByTagName('tr')[firstRow]; let refChild = tr.childNodes[columnOffset]; if (refChild.className === 'ng2-smart-actions') { this._renderer.insertBefore(tr, td, refChild); } } }
   settings = {
   selectMode: 'multi',
-
+   actions: false,
    columns: {
      id: {
        title: 'ID',
@@ -33,6 +33,26 @@ ngAfterViewChecked() { let firstRow = 2; let columnOffset = 4; if (this.elRef.na
      },
    }
  };
+ settings2 = {
+  columns: {
+    id: {
+      title: 'ID',
+      filter: false
+         },
+    name: {
+      title: 'Full Name',
+      filter: false,
+    },
+    username: {
+      title: 'User Name',
+      filter: false,
+    },
+    email: {
+      title: 'Email',
+      filter: false,
+    },
+  }
+};
 
  data = [
    {
@@ -102,11 +122,28 @@ ngAfterViewChecked() { let firstRow = 2; let columnOffset = 4; if (this.elRef.na
      email: 'Rey.Padberg@rosamond.biz'
    },
  ];
+ data2 = [
+   {
+     id: 1,
+     name: 'Leanne Graham',
+     username: 'Bret',
+     email: 'Sincere@april.biz'
+   },
+   {
+     id: 2,
+     name: 'Ervin Howell',
+     username: 'Antonette',
+     email: 'Shanna@melissa.tv'
+   }
+ ];
 
  source: LocalDataSource;
+ source2: LocalDataSource;
 
  constructor(private elRef: ElementRef, private _renderer: Renderer2) {
    this.source = new LocalDataSource(this.data);
+   this.source2 = new LocalDataSource(this.data2);
+
  }
 
  onSearch(query: string = undefined) {
