@@ -1,3 +1,9 @@
 
 <input #search class="search" type="text" placeholder="Search..." (keydown.enter)="onSearch(search.value)">
-<ng2-smart-table [settings]="settings" [source]="source" (userRowSelect)="onSelect($event.selected)"> </ng2-smart-table>
+<ng2-smart-table
+                  [settings]="settings"
+                  [source]="source"
+                  class='table table-striped table-bordered table-condensed'
+                  (userRowSelect)="onSelect($event.selected)">
+
+</ng2-smart-table>
